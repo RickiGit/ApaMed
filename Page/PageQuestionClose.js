@@ -8,11 +8,10 @@ import {
   Text,
 } from 'react-native';
 
-export default class PageQuestion extends Component<{}>{
+export default class PageQuestionClose extends Component<{}>{
 
   static navigationOptions = {
     headerTitle: 'Question',
-    tabBarLabel: 'Question',
   };
 
   render(){
@@ -20,7 +19,7 @@ export default class PageQuestion extends Component<{}>{
     return(
       <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
         <Text>
-          Page Question
+          Page Question Close
         </Text>
       </View>
     )

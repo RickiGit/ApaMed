@@ -6,21 +6,24 @@
 import {TabNavigator,StackNavigator} from 'react-navigation';
 import {NavigationComponent} from 'react-native-material-bottom-navigation';
 import PageHome from './PageHome';
-import PageQuestion from './PageQuestion';
 import PageDoctor from './PageDoctor';
 import PageProfile from './PageProfile';
+import PageQuestionOpen from './PageQuestionOpen';
+import PageQuestionClose from './PageQuestionClose';
 
 const App = TabNavigator({
   Home: {screen: StackNavigator({
-    screen: TabNavigator({
-      screen:PageHome
-    },{
-      tabBarComponent: NavigationComponent,
-      tabBarPosition: 'top',
-    })
+    screen:PageHome
   })},
   Question: {screen: StackNavigator({
-    screen:PageQuestion
+    screen: TabNavigator({
+      Open: {screen: PageQuestionOpen},
+      Close: {screen: PageQuestionClose},
+    }, {
+      tabBarComponent: NavigationComponent,
+      tabBarPosition: 'top',
+      tabBarLabel: 'Question',
+    })
   })},
   Doctor:{screen: StackNavigator({
     screen:PageDoctor
@@ -41,7 +44,8 @@ const App = TabNavigator({
           barBackgroundColor: 'white'
         },
         Question: {
-          barBackgroundColor: 'white'
+          barBackgroundColor: 'white',
+          tabBarLabel:'Question',
         },
         Doctor: {
           barBackgroundColor: 'white'
