@@ -6,31 +6,21 @@ import {
   View,
   StyleSheet,
   Text,
-  StatusBar,
 } from 'react-native';
 
-export default class PageQuestionOpen extends Component<{}>{
+export default class PageQuestion extends Component<{}>{
 
   static navigationOptions = {
     headerTitle: 'Question',
-    headerStyle: {
-        backgroundColor: '#00ace6',
-        borderBottomWidth: 0,
-    },
-    headerTitleStyle:{
-        color: 'white',
-    }
+    tabBarLabel: 'Question',
   };
 
   render(){
     const { navigate } = this.props.navigation;
     return(
       <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
-        <StatusBar
-           barStyle="light-content"
-        />
         <Text>
-          Page Question Open
+          Page Question
         </Text>
       </View>
     )

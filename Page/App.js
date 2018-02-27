@@ -23,6 +23,20 @@ const App = TabNavigator({
       tabBarComponent: NavigationComponent,
       tabBarPosition: 'top',
       tabBarLabel: 'Question',
+      tabBarOptions:{
+        bottomNavigationOptions:{
+          labelColor: 'white',
+          showIcon:false,
+          tabs: {
+            Open:{
+              barBackgroundColor: '#00ace6',
+            },
+            Close:{
+              barBackgroundColor: '#00ace6',
+            }
+          }
+        }
+      }
     })
   })},
   Doctor:{screen: StackNavigator({
