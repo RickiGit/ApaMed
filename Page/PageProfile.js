@@ -8,12 +8,10 @@ import {
   Button,
 } from 'react-native';
 
-export default class PageHome extends Component<{}> {
+export default class PageProfile extends Component<{}> {
 
   static navigationOptions = {
-    headerTitle:'Home',
-    tabBarLabel: 'Home',
-
+    tabBarLabel: 'Profile',
   };
 
   render(){

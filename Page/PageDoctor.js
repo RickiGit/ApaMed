@@ -1,19 +1,17 @@
 //@flow
 
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 
 import {
   View,
+  StyleSheet,
   Text,
-  Button,
 } from 'react-native';
 
-export default class PageHome extends Component<{}> {
+export default class PageDoctor extends Component<{}>{
 
   static navigationOptions = {
-    headerTitle:'Home',
-    tabBarLabel: 'Home',
-
+    tabBarLabel: 'Doctor',
   };
 
   render(){
@@ -21,7 +19,7 @@ export default class PageHome extends Component<{}> {
     return(
       <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
         <Text>
-          Page Home
+          Page Question
         </Text>
       </View>
     )
