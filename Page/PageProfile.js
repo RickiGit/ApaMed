@@ -11,6 +11,7 @@ import {
 export default class PageProfile extends Component<{}> {
 
   static navigationOptions = {
+    headerTitle: 'Profile',
     tabBarLabel: 'Profile',
   };
 
@@ -19,7 +20,7 @@ export default class PageProfile extends Component<{}> {
     return(
       <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
         <Text>
-          Page Home
+          Page Profile
         </Text>
       </View>
     )

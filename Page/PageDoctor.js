@@ -11,6 +11,7 @@ import {
 export default class PageDoctor extends Component<{}>{
 
   static navigationOptions = {
+    headerTitle: 'Doctor',
     tabBarLabel: 'Doctor',
   };
 
@@ -19,7 +20,7 @@ export default class PageDoctor extends Component<{}>{
     return(
       <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
         <Text>
-          Page Question
+          Page Doctor
         </Text>
       </View>
     )

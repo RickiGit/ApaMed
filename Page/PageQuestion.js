@@ -11,6 +11,7 @@ import {
 export default class PageQuestion extends Component<{}>{
 
   static navigationOptions = {
+    headerTitle: 'Question',
     tabBarLabel: 'Question',
   };
 
