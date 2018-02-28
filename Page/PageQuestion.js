@@ -1,28 +1,67 @@
 //@flow
 
 import React, {Component} from 'react';
-
+import {TabNavigator} from 'react-navigation';
+import {NavigationComponent} from 'react-native-material-bottom-navigation';
+import PageQuestionOpen from './PageQuestionOpen';
+import PageQuestionClose from './PageQuestionClose';
 import {
   View,
   StyleSheet,
   Text,
 } from 'react-native';
 
+export const Tabs = TabNavigator({
+  QuestionOpen: {
+    screen: PageQuestionOpen,
+    navigationOptions: {
+      tabBarLabel: 'Open',
+      //tabBarIcon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />
+    },
+  },
+  QuestionClose: {
+    screen: PageQuestionClose,
+    navigationOptions: {
+      tabBarLabel: 'Close',
+      //tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
+    },
+  },
+},
+{
+  tabBarComponent: NavigationComponent,
+  tabBarPosition: 'Top',
+  tabBarOptions: {
+    bottomNavigationOptions: {
+      labelColor: 'white',
+      shifting: false,
+      tabs: {
+        QuestionOpen: {
+          barBackgroundColor: '#00ace6',
+        },
+        QuestionClose: {
+          barBackgroundColor: '#00ace6',
+      }
+    }
+  }
+}});
+
 export default class PageQuestion extends Component<{}>{
 
   static navigationOptions = {
     headerTitle: 'Question',
-    tabBarLabel: 'Question',
+    headerStyle: {
+        backgroundColor: '#00ace6',
+        borderBottomWidth: 0,
+    },
+    headerTitleStyle:{
+        color: 'white',
+    }
   };
 
   render(){
     const { navigate } = this.props.navigation;
     return(
-      <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
-        <Text>
-          Page Question
-        </Text>
-      </View>
+      <Tabs/>
     )
   }
 }

@@ -8,36 +8,35 @@ import {NavigationComponent} from 'react-native-material-bottom-navigation';
 import PageHome from './PageHome';
 import PageDoctor from './PageDoctor';
 import PageProfile from './PageProfile';
-import PageQuestionOpen from './PageQuestionOpen';
-import PageQuestionClose from './PageQuestionClose';
+// import PageQuestionOpen from './PageQuestionOpen';
+// import PageQuestionClose from './PageQuestionClose';
+import PageQuestion from './PageQuestion';
 
 const App = TabNavigator({
   Home: {screen: StackNavigator({
     screen:PageHome
   })},
-  Question: {screen: StackNavigator({
-    screen: TabNavigator({
-      Open: {screen: PageQuestionOpen},
-      Close: {screen: PageQuestionClose},
-    }, {
-      tabBarComponent: NavigationComponent,
-      tabBarPosition: 'top',
-      tabBarLabel: 'Question',
-      tabBarOptions:{
-        bottomNavigationOptions:{
-          labelColor: 'white',
-          showIcon:false,
-          tabs: {
-            Open:{
-              barBackgroundColor: '#00ace6',
-            },
-            Close:{
-              barBackgroundColor: '#00ace6',
-            }
-          }
-        }
-      }
-    })
+  Question:{screen: StackNavigator({
+    screen:PageQuestion
+    // {
+    //   tabBarComponent: NavigationComponent,
+    //   tabBarPosition: 'top',
+    //   tabBarLabel: 'Question',
+    //   tabBarOptions:{
+    //     bottomNavigationOptions:{
+    //       labelColor: 'white',
+    //       showIcon:false,
+    //       tabs: {
+    //         Open:{
+    //           barBackgroundColor: '#00ace6',
+    //         },
+    //         Close:{
+    //           barBackgroundColor: '#00ace6',
+    //         }
+    //       }
+    //     }
+    //   }
+    // })
   })},
   Doctor:{screen: StackNavigator({
     screen:PageDoctor

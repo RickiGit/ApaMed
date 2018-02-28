@@ -20,7 +20,7 @@ export default class PageQuestionClose extends Component<{}>{
     },
     headerTitleStyle:{
         color: 'white',
-    }
+    },
   };
 
   render(){
@@ -30,12 +30,10 @@ export default class PageQuestionClose extends Component<{}>{
         <StatusBar
            barStyle="light-content"
         />
-        {/* <Text>
+        <Text>
           Page Question Close
-        </Text> */}
-        <ListView>
-          
-        </ListView>
+        </Text>
+
       </View>
     )
   }
