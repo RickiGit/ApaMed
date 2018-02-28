@@ -51,7 +51,8 @@ export default class PageQuestionOpen extends Component<{}>{
                 style={{
                   width:30,
                   height:30,
-                  margin:5,
+                  marginTop:5,
+                  marginEnd:5,
                   borderRadius:15,
                 }}
                 source={{uri: 'https://cdn.business2community.com/wp-content/uploads/2014/04/profile-picture.jpg'}}
@@ -79,6 +80,7 @@ const style = StyleSheet.create({
     backgroundColor: 'white',
     padding: 20,
     margin: 20,
+    borderRadius: 5,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
