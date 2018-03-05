@@ -11,19 +11,17 @@ import {
   Text,
 } from 'react-native';
 
-export const Tabs = TabNavigator({
+export const TabsQuestion = TabNavigator({
   QuestionOpen: {
     screen: PageQuestionOpen,
     navigationOptions: {
       tabBarLabel: 'Open',
-      //tabBarIcon: ({ tintColor }) => <Icon name="list" size={35} color={tintColor} />
     },
   },
   QuestionClose: {
     screen: PageQuestionClose,
     navigationOptions: {
       tabBarLabel: 'Close',
-      //tabBarIcon: ({ tintColor }) => <Icon name="account-circle" size={35} color={tintColor} />
     },
   },
 },
@@ -61,7 +59,7 @@ export default class PageQuestion extends Component<{}>{
   render(){
     const { navigate } = this.props.navigation;
     return(
-      <Tabs/>
+      <TabsQuestion/>
     )
   }
 }

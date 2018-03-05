@@ -8,6 +8,7 @@ import {
   Text,
   StatusBar,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 
 export default class PageQuestionOpen extends Component<{}>{
@@ -30,7 +31,7 @@ export default class PageQuestionOpen extends Component<{}>{
         <StatusBar
            barStyle="light-content"
         />
-        <View style={style.thread}>
+        <TouchableOpacity style={style.thread} onPress={() => navigate("Profile")}>
           <View style={style.threadTitle}>
             <Text style={{color:'#00ace6', fontWeight:'bold',}}>
               Pregnancy
@@ -58,14 +59,14 @@ export default class PageQuestionOpen extends Component<{}>{
                 source={{uri: 'https://cdn.business2community.com/wp-content/uploads/2014/04/profile-picture.jpg'}}
               />
               <Text style={{fontSize:11, marginLeft:5}}>
-                Answered by dr. Jane Doe
+                Answered by <Text style={{color:'#00ace6'}}>dr. Jane Doe</Text>
               </Text>
             </View>
             <View>
               <Image />
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     )
   }
