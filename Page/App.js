@@ -6,15 +6,17 @@
 import {TabNavigator,StackNavigator} from 'react-navigation';
 import {NavigationComponent} from 'react-native-material-bottom-navigation';
 import PageHome from './PageHome';
+import PageFeedDetail from './PageFeedDetail';
 import PageDoctor from './PageDoctor';
 import PageProfile from './PageProfile';
 import PageQuestionOpen from './PageQuestionOpen';
 import PageQuestionClose from './PageQuestionClose';
 import PageQuestionDetail from './PageQuestionDetail';
 
-// const HomeScreen = StackNavigator({
-//   MainHomeScreen{screen: PageHome}
-// });
+const HomeScreen = StackNavigator({
+  MainFeed:{screen: PageHome},
+  DetailFeed:{screen: PageFeedDetail},
+});
 
 const QuestionScreen = StackNavigator({
   QuestionList:{screen: TabNavigator({

@@ -10,10 +10,11 @@ import {
 
 export default class PageFeed extends Component<{}>{
   render(){
+    const { navigate } = this.props.navigation;
     return(
       <ScrollView>
         <View style={styles.container}>
-          <View style={styles.box}>
+          <TouchableOpacity style={styles.box} onPress={()=> navigate("DetailFeed")}>
             <View>
             <Image
               style={{
@@ -32,10 +33,10 @@ export default class PageFeed extends Component<{}>{
                   <Text style={{color:'#888888'}}>...</Text>
                 </TouchableOpacity>
               </View>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.container}>
-          <View style={styles.box}>
+          <TouchableOpacity style={styles.box}>
             <View>
             <Image
               style={{
@@ -50,12 +51,14 @@ export default class PageFeed extends Component<{}>{
                 <Text style={{fontWeight:'bold'}}>Learn to live with it: Becoming stress-free</Text>
               </View>
               <View style={{justifyContent:'flex-end'}}>
-                <Text style={{color:'#888888'}}>...</Text>
+                <TouchableOpacity>
+                  <Text style={{color:'#888888'}}>...</Text>
+                </TouchableOpacity>
               </View>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.container}>
-          <View style={styles.box}>
+          <TouchableOpacity style={styles.box}>
             <View>
             <Image
               style={{
@@ -70,12 +73,14 @@ export default class PageFeed extends Component<{}>{
                 <Text style={{fontWeight:'bold'}}>Learn to live with it: Becoming stress-free</Text>
               </View>
               <View style={{justifyContent:'flex-end'}}>
-                <Text style={{color:'#888888'}}>...</Text>
+                <TouchableOpacity>
+                  <Text style={{color:'#888888'}}>...</Text>
+                </TouchableOpacity>
               </View>
-          </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.container}>
-          <View style={styles.box}>
+          <TouchableOpacity style={styles.box}>
             <View>
             <Image
               style={{
@@ -90,9 +95,11 @@ export default class PageFeed extends Component<{}>{
                 <Text style={{fontWeight:'bold'}}>Learn to live with it: Becoming stress-free</Text>
               </View>
               <View style={{justifyContent:'flex-end'}}>
-                <Text style={{color:'#888888'}}>...</Text>
+                <TouchableOpacity>
+                  <Text style={{color:'#888888'}}>...</Text>
+                </TouchableOpacity>
               </View>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     )
