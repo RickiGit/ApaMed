@@ -18,6 +18,8 @@ export default class PageQuestionOpen extends Component<{}>{
     headerStyle: {
         backgroundColor: '#00ace6',
         borderBottomWidth: 0,
+        shadowRadius:0,
+        elevation:0,
     },
     headerTitleStyle:{
         color: 'white',
@@ -31,7 +33,7 @@ export default class PageQuestionOpen extends Component<{}>{
         <StatusBar
            barStyle="light-content"
         />
-        <TouchableOpacity style={style.thread} onPress={() => navigate("Profile")}>
+        <TouchableOpacity style={style.thread} onPress={() => navigate("QuestionDetail")}>
           <View style={style.threadTitle}>
             <Text style={{color:'#00ace6', fontWeight:'bold',}}>
               Pregnancy
@@ -74,7 +76,8 @@ export default class PageQuestionOpen extends Component<{}>{
 
 const style = StyleSheet.create({
   container:{
-    flex:1, justifyContent:'flex-start',
+    flex:1,
+    justifyContent:'flex-start',
     alignItems:'stretch',
   },
   thread:{

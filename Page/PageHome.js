@@ -1,12 +1,12 @@
 //@flow
 
 import React,{Component} from 'react';
-import {TabNavigator,StackNavigator} from 'react-navigation';
-import {NavigationComponent} from 'react-native-material-bottom-navigation';
+import {TabNavigator} from 'react-navigation';
+import Swiper from 'react-native-swiper';
 
 import PageDoctor from './PageDoctor';
 import PageProfile from './PageProfile';
-
+import PageFeed from './PageFeed';
 import {
   Platform,
   View,
@@ -15,51 +15,26 @@ import {
   Button,
 } from 'react-native';
 
-const TabsMenu = TabNavigator({
-  All:{screen: StackNavigator({
-    screen:PageDoctor,
-  })},
-
-  Featured:{screen: StackNavigator({
-    screen:PageProfile
-  })},
-
-  Popular:{screen: StackNavigator({
-    screen:PageDoctor
-  })},
-
-  MyFavorites:{screen: StackNavigator({
-    screen:PageProfile
-  })},
-}, {
-  tabBarComponent: NavigationComponent,
-  tabBarPosition: 'bottom',
-  tabBarOptions: {
-    bottomNavigationOptions: {
-      labelColor: '#ffffff',
-
-      showIcon: false,
-      rippleColor: 'grey',
-      shifting: false,
-      tabs: {
-        All: {
-          barBackgroundColor: '#00ace6',
-        },
-        Featured: {
-          barBackgroundColor: '#00ace6'
-        },
-        Popular: {
-          barBackgroundColor: '#00ace6'
-        },
-        MyFavorites: {
-          barBackgroundColor: '#00ace6'
-        },
-      }
+const CenterTabs = TabNavigator({
+  All:{screen:PageFeed},
+  Featured:{screen:PageFeed},
+  Popular:{screen:PageFeed},
+  MyFavorites:{
+    screen:PageFeed,
+    navigationOptions:{
+      tabBarLabel:'My Favorites',
     }
-  }
-}
-
-);
+  },
+},
+{
+  tabBarPosition:'top',
+  scrollEnabled:true,
+  tabBarOptions:{
+    showIcon:false,
+    labelStyle:{
+    },
+  },
+});
 
 export default class PageHome extends Component<{}> {
 
@@ -77,16 +52,25 @@ export default class PageHome extends Component<{}> {
     return(
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.titleHeader}>Ini namanya nyoba dulu kali aja cocok</Text>
-          <TabsMenu/>
+          <Swiper style={styles.wrapper} showsButtons={true}>
+        <View style={styles.slide1}>
+          <Text style={styles.text}>Hello Swiper</Text>
         </View>
-        <View style={styles.content}></View>
+        <View style={styles.slide2}>
+          <Text style={styles.text}>Beautiful</Text>
+        </View>
+        <View style={styles.slide3}>
+          <Text style={styles.text}>And simple</Text>
+        </View>
+      </Swiper>
+        </View>
+        <View style={styles.content}>
+          <CenterTabs/>
+        </View>
       </View>
     )
   }
 }
-
-
 
 const styles = StyleSheet.create({
   container: {
@@ -101,11 +85,36 @@ const styles = StyleSheet.create({
 
   content: {
     flex: 1,
-    backgroundColor: "#4b3f72"
+    backgroundColor: "#ffffff"
   },
 
   titleHeader:{
     color: '#FFFFFF',
     fontSize: 18,
+  },
+  wrapper: {
+  },
+  slide1: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#9DD6EB',
+  },
+  slide2: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#97CAE5',
+  },
+  slide3: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#92BBD9',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 30,
+    fontWeight: 'bold',
   }
 });

@@ -17,6 +17,8 @@ export default class PageQuestionClose extends Component<{}>{
     headerStyle: {
         backgroundColor: '#00ace6',
         borderBottomWidth: 0,
+        shadowRadius:0,
+        elevation:0,
     },
     headerTitleStyle:{
         color: 'white',

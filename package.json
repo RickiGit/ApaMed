@@ -7,9 +7,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "npm": "^5.7.1",
     "react": "16.2.0",
     "react-native": "0.53.3",
     "react-native-material-bottom-navigation": "^0.8.2",
+    "react-native-swiper": "^1.5.13",
     "react-navigation": "^1.2.1"
   },
   "devDependencies": {

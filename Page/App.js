@@ -8,28 +8,75 @@ import {NavigationComponent} from 'react-native-material-bottom-navigation';
 import PageHome from './PageHome';
 import PageDoctor from './PageDoctor';
 import PageProfile from './PageProfile';
- import PageQuestionOpen from './PageQuestionOpen';
- import PageQuestionClose from './PageQuestionClose';
+import PageQuestionOpen from './PageQuestionOpen';
+import PageQuestionClose from './PageQuestionClose';
 import PageQuestionDetail from './PageQuestionDetail';
 
-const QuestionScreen = TabNavigator({
-  QuestionOpen:{screen:PageQuestionOpen},
-  QuestionClose:{screen:PageQuestionClose},
+// const HomeScreen = StackNavigator({
+//   MainHomeScreen{screen: PageHome}
+// });
+
+const QuestionScreen = StackNavigator({
+  QuestionList:{screen: TabNavigator({
+    QuestionOpen:{
+      screen:PageQuestionOpen,
+      navigationOptions: {
+        tabBarLabel: 'Open',
+      },
+    },
+    QuestionClose:{
+      screen:PageQuestionClose,
+      navigationOptions: {
+        tabBarLabel: 'Close',
+      },
+    },
+  },
+  {
+      tabBarPosition: 'top',
+      tabBarOptions:{
+        style:{
+          backgroundColor: '#00ace6',
+        },
+        labelStyle:{
+          fontSize: 16,
+          color: 'white',
+        }
+      }
+    }
+  )
 },
-{
-    tabBarPosition: 'top',
+  QuestionDetail:{screen: PageQuestionDetail}
 });
 
 const MainScreen = TabNavigator({
   Home:{screen:PageHome},
-  Question:{screen:QuestionScreen},
+  Question:{
+    screen:QuestionScreen,
+    navigationOptions: {
+      tabBarLabel: 'Question',
+      tabBarOptions:{
+        bottomNavigationOptions:{
+          shifting: false,
+        }
+      }
+    },
+  },
   Doctor:{screen:PageDoctor},
   Profile:{screen:PageProfile},
 },
 {
+  lazy:false,
+  swipeEnabled:false,
+  animationEnabled:false,
   tabBarComponent: NavigationComponent,
   tabBarPosition: 'bottom',
-});
+  tabBarOptions:{
+    bottomNavigationOptions:{
+      shifting: false,
+      }
+    }
+  }
+);
 // const MainScreen = TabNavigator({
 //   Home: {screen: StackNavigator({
 //     screen:PageHome
