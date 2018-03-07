@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Image,
   ScrollView,
+  TouchableOpacity,
 } from 'react-native';
 
 export default class PageFeed extends Component<{}>{
@@ -27,7 +28,9 @@ export default class PageFeed extends Component<{}>{
                 <Text style={{fontWeight:'bold'}}>Learn to live with it: Becoming stress-free</Text>
               </View>
               <View style={{justifyContent:'flex-end'}}>
-                <Text style={{color:'#888888'}}>...</Text>
+                <TouchableOpacity>
+                  <Text style={{color:'#888888'}}>...</Text>
+                </TouchableOpacity>
               </View>
           </View>
         </View>
