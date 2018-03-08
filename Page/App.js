@@ -51,7 +51,7 @@ const QuestionScreen = StackNavigator({
 });
 
 const MainScreen = TabNavigator({
-  Home:{screen:PageHome},
+  Home:{screen:HomeScreen},
   Question:{
     screen:QuestionScreen,
     navigationOptions: {
@@ -75,81 +75,11 @@ const MainScreen = TabNavigator({
   tabBarOptions:{
     bottomNavigationOptions:{
       shifting: false,
-      }
+    },
+    style:{
+      backgroundColor: '#DDDDDD'
     }
   }
-);
-// const MainScreen = TabNavigator({
-//   Home: {screen: StackNavigator({
-//     screen:PageHome
-//   })},
-//   Question:{screen: StackNavigator({
-//     QuestionChild:{screen:TabNavigator({
-//       QuestionOpen: {
-//         screen: PageQuestionOpen,
-//         navigationOptions: {
-//           tabBarLabel: 'Open',
-//         },
-//       },
-//       QuestionClose: {
-//         screen: PageQuestionClose,
-//         navigationOptions: {
-//           tabBarLabel: 'Close',
-//         },
-//       },
-//     },
-//     {
-//       tabBarComponent: NavigationComponent,
-//       tabBarPosition: 'Top',
-//       tabBarOptions: {
-//         bottomNavigationOptions: {
-//           labelColor: 'white',
-//           shifting: false,
-//           tabs: {
-//             QuestionOpen: {
-//               barBackgroundColor: '#00ace6',
-//             },
-//             QuestionClose: {
-//               barBackgroundColor: '#00ace6',
-//           }
-//         }
-//       }
-//     }})},
-//     QuestionDetail:{screen:PageQuestionDetail},
-//   })},
-//   Doctor:{screen: StackNavigator({
-//     screen:PageDoctor
-//   })},
-//   Profile:{screen: StackNavigator({
-//     screen:PageProfile
-//   })},
-// }, {
-//   tabBarComponent: NavigationComponent,
-//   tabBarPosition: 'bottom',
-//   tabBarOptions: {
-//     bottomNavigationOptions: {
-//       labelColor: '#555555',
-//       rippleColor: 'grey',
-//       shifting: false,
-//       tabs: {
-//         Home: {
-//           barBackgroundColor: 'white'
-//         },
-//         Question: {
-//           barBackgroundColor: 'white',
-//           tabBarLabel:'Question',
-//         },
-//         Doctor: {
-//           barBackgroundColor: 'white'
-//         },
-//         Profile: {
-//           barBackgroundColor: 'white'
-//         },
-//       }
-//     }
-//   }
-// }
-//
-// );
+});
 
 export default MainScreen;

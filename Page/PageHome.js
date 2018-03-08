@@ -1,18 +1,21 @@
 //@flow
 
 import React,{Component} from 'react';
-import {TabNavigator} from 'react-navigation';
 import Swiper from 'react-native-swiper';
+import {TabNavigator,StackNavigator} from 'react-navigation';
 
 import PageDoctor from './PageDoctor';
 import PageProfile from './PageProfile';
 import PageFeed from './PageFeed';
+import PageFeedDetail from './PageFeedDetail';
 import {
   Platform,
   View,
   StyleSheet,
   Text,
   Button,
+  TouchableOpacity,
+  Alert
 } from 'react-native';
 
 const CenterTabs = TabNavigator({
@@ -47,6 +50,18 @@ export default class PageHome extends Component<{}> {
     headerTitleStyle: { color: 'white' },
   };
 
+  SecondClassFunction=()=>{
+    Alert.alert("Second Class Function Without Argument Called");
+  }
+
+  // moveToDetail = () => {
+  //   this.props.navigation.navigate('DetailFeed');
+  // }
+  //
+  // static abc(){
+  //    alert('Hello World');
+  //  }}
+
   render(){
     const { navigate } = this.props.navigation;
     return(
@@ -54,7 +69,7 @@ export default class PageHome extends Component<{}> {
         <View style={styles.header}>
           <Swiper style={styles.wrapper} showsButtons={true}>
         <View style={styles.slide1}>
-          <Text style={styles.text}>Hello Swiper</Text>
+          <TouchableOpacity onPress={this.moveToDetail}><Text style={styles.text}>Hello Swiper</Text></TouchableOpacity>
         </View>
         <View style={styles.slide2}>
           <Text style={styles.text}>Beautiful</Text>
@@ -65,12 +80,14 @@ export default class PageHome extends Component<{}> {
       </Swiper>
         </View>
         <View style={styles.content}>
-          <CenterTabs/>
+          <CenterTabs navigation={this.props.navigation}/>
         </View>
       </View>
     )
   }
 }
+
+PageHome.router = CenterTabs.router;
 
 const styles = StyleSheet.create({
   container: {
