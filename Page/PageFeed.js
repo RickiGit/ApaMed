@@ -40,7 +40,7 @@ class PageFeed extends React.Component<{}>{
         ]}
 
         renderItem={({item}) => {return(
-          <TouchableHighlight onPress={() => this.CallFunction_1()}>
+          <TouchableHighlight>
                 <Text style={styles.item}>{item.key}</Text>
           </TouchableHighlight>
         )}}

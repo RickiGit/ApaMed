@@ -30,6 +30,7 @@ const CenterTabs = TabNavigator({
   },
 },
 {
+  lazy:false,
   tabBarPosition:'top',
   scrollEnabled:true,
   tabBarOptions:{
@@ -57,7 +58,11 @@ export default class PageHome extends Component<{}> {
     return(
       <View style={styles.container}>
         <View style={styles.header}>
-          <Swiper style={styles.wrapper} showsButtons={true}>
+          <Swiper
+            style={styles.wrapper}
+            showsButtons={true}
+            autoplay={true}
+            autoplayTimeout={5}>
         <View style={styles.slide1}>
           <TouchableOpacity onPress={() => navigate('DetailFeed')}><Text style={styles.text}>Hello Swiper</Text></TouchableOpacity>
         </View>
