@@ -69,12 +69,14 @@ export default class PageHome extends Component<{}> {
       </Swiper>
         </View>
         <View style={styles.content}>
-          <CenterTabs/>
+          <CenterTabs navigation={this.props.navigation}/>
         </View>
       </View>
     )
   }
 }
+
+PageHome.router = CenterTabs.router
 
 const styles = StyleSheet.create({
   container: {
