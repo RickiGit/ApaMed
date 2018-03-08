@@ -1,107 +1,51 @@
 import React,{Component} from 'react';
+import {TabNavigator,StackNavigator} from 'react-navigation';
+import PageHome from './PageHome';
 import {
   View,
   Text,
   StyleSheet,
   Image,
   ScrollView,
+  TouchableHighlight,
   TouchableOpacity,
+  FlatList,
+  AppRegistry,
+  Alert,
+  Navigator,
+  SpinnerOverlay
 } from 'react-native';
 
-export default class PageFeed extends Component<{}>{
+class PageFeed extends React.Component<{}>{
+
+  constructor(props) {
+    super(props)
+  }
+
+
   render(){
     const { navigate } = this.props.navigation;
     return(
-      <ScrollView>
-        <View style={styles.container}>
-          <TouchableOpacity style={styles.box} onPress={()=> navigate("DetailFeed")}>
-            <View>
-            <Image
-              style={{
-                width:50,
-                height:50,
-                marginTop:5,
-                marginEnd:5,
-              }}
-              source={{uri: 'https://i1.wp.com/epicureandculture.com/wp-content/uploads/2014/10/Sacred-Earth-Journeys.jpg?w=320&ssl=1'}}/>
-              </View>
-              <View style={{paddingLeft:10, paddingRight:10, paddingTop:5,}}>
-                <Text style={{fontWeight:'bold'}}>Learn to live with it: Becoming stress-free</Text>
-              </View>
-              <View style={{justifyContent:'flex-end'}}>
-                <TouchableOpacity>
-                  <Text style={{color:'#888888'}}>...</Text>
-                </TouchableOpacity>
-              </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.container}>
-          <TouchableOpacity style={styles.box}>
-            <View>
-            <Image
-              style={{
-                width:50,
-                height:50,
-                marginTop:5,
-                marginEnd:5,
-              }}
-              source={{uri: 'https://i1.wp.com/epicureandculture.com/wp-content/uploads/2014/10/Sacred-Earth-Journeys.jpg?w=320&ssl=1'}}/>
-              </View>
-              <View style={{paddingLeft:10, paddingRight:10, paddingTop:5,}}>
-                <Text style={{fontWeight:'bold'}}>Learn to live with it: Becoming stress-free</Text>
-              </View>
-              <View style={{justifyContent:'flex-end'}}>
-                <TouchableOpacity>
-                  <Text style={{color:'#888888'}}>...</Text>
-                </TouchableOpacity>
-              </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.container}>
-          <TouchableOpacity style={styles.box}>
-            <View>
-            <Image
-              style={{
-                width:50,
-                height:50,
-                marginTop:5,
-                marginEnd:5,
-              }}
-              source={{uri: 'https://i1.wp.com/epicureandculture.com/wp-content/uploads/2014/10/Sacred-Earth-Journeys.jpg?w=320&ssl=1'}}/>
-              </View>
-              <View style={{paddingLeft:10, paddingRight:10, paddingTop:5,}}>
-                <Text style={{fontWeight:'bold'}}>Learn to live with it: Becoming stress-free</Text>
-              </View>
-              <View style={{justifyContent:'flex-end'}}>
-                <TouchableOpacity>
-                  <Text style={{color:'#888888'}}>...</Text>
-                </TouchableOpacity>
-              </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.container}>
-          <TouchableOpacity style={styles.box}>
-            <View>
-            <Image
-              style={{
-                width:50,
-                height:50,
-                marginTop:5,
-                marginEnd:5,
-              }}
-              source={{uri: 'https://i1.wp.com/epicureandculture.com/wp-content/uploads/2014/10/Sacred-Earth-Journeys.jpg?w=320&ssl=1'}}/>
-              </View>
-              <View style={{paddingLeft:10, paddingRight:10, paddingTop:5,}}>
-                <Text style={{fontWeight:'bold'}}>Learn to live with it: Becoming stress-free</Text>
-              </View>
-              <View style={{justifyContent:'flex-end'}}>
-                <TouchableOpacity>
-                  <Text style={{color:'#888888'}}>...</Text>
-                </TouchableOpacity>
-              </View>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
+      <View style={styles.container}>
+        <FlatList style={styles.list}
+        data={[
+          {key: 'Devin'},
+          {key: 'Jackson'},
+          {key: 'James'},
+          {key: 'Joel'},
+          {key: 'John'},
+          {key: 'Jillian'},
+          {key: 'Jimmy'},
+          {key: 'Julie'},
+        ]}
+
+        renderItem={({item}) => {return(
+          <TouchableHighlight onPress={() => this.CallFunction_1()}>
+                <Text style={styles.item}>{item.key}</Text>
+          </TouchableHighlight>
+        )}}
+      />
+      </View>
     )
   }
 }
@@ -111,10 +55,16 @@ const styles  = StyleSheet.create({
     flex:1,
     justifyContent:'flex-start',
     alignItems:'center',
-    paddingLeft:20,
-    paddingRight:20,
-    paddingTop:5,
-    //backgroundColor:'#ff0000',
+    backgroundColor:'#eeeeee',
+  },
+  list:{
+    alignSelf: 'stretch'
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+    alignSelf: 'stretch',
   },
   box:{
     //flex:1,
@@ -124,3 +74,5 @@ const styles  = StyleSheet.create({
     //backgroundColor:'#999999',
   }
 });
+
+export default PageFeed;
