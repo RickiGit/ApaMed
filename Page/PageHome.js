@@ -77,11 +77,7 @@ export default class PageHome extends Component<{}> {
   }
 }
 
-<<<<<<< HEAD
 PageHome.router = CenterTabs.router
-=======
-PageHome.router = CenterTabs.router;
->>>>>>> 3afaf144c69022fc4cd6f8cacc1515ed64aa741e
 
 const styles = StyleSheet.create({
   container: {
