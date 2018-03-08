@@ -13,7 +13,9 @@ import {
   StyleSheet,
   Text,
   Button,
+  TouchableOpacity,
 } from 'react-native';
+
 
 const CenterTabs = TabNavigator({
   All:{screen:PageFeed},
@@ -36,6 +38,8 @@ const CenterTabs = TabNavigator({
   },
 });
 
+
+
 export default class PageHome extends Component<{}> {
 
   static navigationOptions = {
@@ -54,7 +58,7 @@ export default class PageHome extends Component<{}> {
         <View style={styles.header}>
           <Swiper style={styles.wrapper} showsButtons={true}>
         <View style={styles.slide1}>
-          <Text style={styles.text}>Hello Swiper</Text>
+          <TouchableOpacity onPress={() => navigate('DetailFeed')}><Text style={styles.text}>Hello Swiper</Text></TouchableOpacity>
         </View>
         <View style={styles.slide2}>
           <Text style={styles.text}>Beautiful</Text>
