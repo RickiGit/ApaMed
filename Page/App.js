@@ -16,6 +16,11 @@ import PageQuestionDetail from './PageQuestionDetail';
 const HomeScreen = StackNavigator({
   MainFeed:{screen: PageHome},
   DetailFeed:{screen: PageFeedDetail},
+},
+{
+  navigationOptions:{
+    header:null
+  }
 });
 
 const QuestionScreen = StackNavigator({
