@@ -107,7 +107,9 @@ const style = StyleSheet.create({
   thread:{
     backgroundColor: 'white',
     padding: 20,
-    margin: 20,
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight:20,
     borderRadius: 5,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
