@@ -6,7 +6,6 @@ import {
   View,
   Text,
   Button,
-  StyleSheet,
 } from 'react-native';
 
 export default class PageProfile extends Component<{}> {
@@ -19,7 +18,7 @@ export default class PageProfile extends Component<{}> {
   render(){
     const { navigate } = this.props.navigation;
     return(
-      <View style={styles.container}>
+      <View style={{flex:1, justifyContent:'center',alignItems:'center'}}>
         <Text>
           Page Profile
         </Text>
@@ -27,12 +26,3 @@ export default class PageProfile extends Component<{}> {
     )
   }
 }
-
- const styles = StyleSheet.create({
-   container:{
-     flex:1,
-     justifyContent:'center',
-     alignItems:'center'
-   },
-
- });

@@ -9,9 +9,10 @@ import {
 export default class PageFeedDetail extends Component<{}>{
   render(){
     const { navigate } = this.props.navigation;
+    const navParams = this.props.navigation.state.params;
     return(
       <View>
-        <Text>Page Feed Detail</Text>
+        <Text>{navParams}</Text>
       </View>
     )
   }

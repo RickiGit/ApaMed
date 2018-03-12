@@ -13,19 +13,91 @@ import {
   AppRegistry,
   Alert,
   Navigator,
-  SpinnerOverlay
+  SpinnerOverlay,
+  ActivityIndicator,
+  StatusBar
 } from 'react-native';
 
 class PageFeed extends React.Component<{}>{
 
-  constructor(props) {
-    super(props)
+  constructor(props){
+      super(props);
+      this.state = {
+        isLoading: true
+      }
+    }
+
+  componentDidMount(){
+    return fetch('https://facebook.github.io/react-native/movies.json')
+      .then((response) => response.json())
+      .then((responseJson) => {
+
+        this.setState({
+          isLoading: false,
+          data: responseJson.movies,
+        }, function(){
+
+        });
+
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
   }
 
+  renderSeparator = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: "100%",
+          backgroundColor: "#CED0CE",
+        }}
+      />
+    );
+  };
+
+  handleClick(letter) {
+    this.props.navigation.navigate('DetailFeed', letter);
+  }
 
   render(){
-    const { navigate } = this.props.navigation;
+
+    if(this.state.isLoading){
+      return(
+        <View style={{flex: 1, padding: 20}}>
+          <ActivityIndicator/>
+        </View>
+      )
+    }
+
     return(
+<<<<<<< HEAD
+      <View style={styles.container}>
+        <StatusBar backgroundColor="#00ace6" barStyle="light-content"/>
+
+        <FlatList data={this.state.data} style={styles.list} ItemSeparatorComponent={this.renderSeparator}
+          renderItem={({item}) =>
+
+            <View style={styles.containerItem}>
+              <Image style={styles.imageItem} source={{uri: 'https://www.iamexpat.nl/sites/default/files/styles/article--full/public/dutch-healthcare-system.jpg?itok=0MbxOy7D'}}></Image>
+              <View style={styles.containerContentItem}>
+                <TouchableOpacity onPress={this.handleClick(item.title)}>
+                  <Text style={styles.item}>{item.title}, {item.releaseYear} A performant interface for rendering</Text>
+                </TouchableOpacity>
+                <View style={styles.containerItem2}>
+                  <Image style={styles.iconImage} source={require('../Assets/images/comment_gray.png')}/>
+                  <Text style={styles.titleComment}>30 Comment</Text>
+                </View>
+              </View>
+            </View>
+          }
+
+          keyExtractor={(item, index) => index}
+        />
+      </View>
+    );
+=======
       // <View style={styles.container}>
         <FlatList style={styles.list}
         data={[
@@ -64,6 +136,7 @@ class PageFeed extends React.Component<{}>{
       />
       //</View>
     )
+>>>>>>> 0b89fca21da9228bec1eede77747cce6d2f14495
   }
 }
 
@@ -74,21 +147,68 @@ const styles  = StyleSheet.create({
     alignItems:'stretch',
     backgroundColor:'#eeeeee',
   },
+
   list:{
     alignSelf: 'stretch'
   },
-  item: {
+
+  containerItem:{
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
     padding: 10,
+    justifyContent: 'center',
+  },
+
+  containerItem2:{
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 5,
+  },
+
+  item: {
     fontSize: 18,
     height: 44,
+    color: '#111111',
     alignSelf: 'stretch',
+    marginLeft: 5,
   },
+
+  containerContentItem:{
+    flex: 1,
+    flexDirection: 'column',
+    marginLeft: 5,
+    justifyContent: 'flex-start'
+  },
+
+  imageItem:{
+    width: 60,
+    height: 50,
+  },
+
+  iconImage:{
+      width: 15,
+      height: 15,
+      marginRight: 5,
+      justifyContent: 'center'
+  },
+
+  titleComment:{
+    color: '#8c8c8c',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    alignSelf: 'stretch',
+    shadowRadius: 5,
+    shadowOpacity: 1.0,
+    marginBottom: -10,
+  },
+
   box:{
-    //flex:1,
     flexDirection:'row',
-    //margin:20,
     padding:20,
-    //backgroundColor:'#999999',
   }
 });
 
