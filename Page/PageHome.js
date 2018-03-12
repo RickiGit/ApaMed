@@ -15,8 +15,11 @@ import {
   Text,
   Button,
   TouchableOpacity,
+  Image,
+  ImageBackground,
+  StatusBar
 } from 'react-native';
-
+import Carousel from 'react-native-carousel-view';
 
 const CenterTabs = TabNavigator({
   All:{screen:PageFeed},
@@ -39,13 +42,11 @@ const CenterTabs = TabNavigator({
   },
 });
 
-
-
 export default class PageHome extends Component<{}> {
 
   static navigationOptions = {
     headerTitle:'Home',
-    tabBarLabel: 'Home',
+    header: null,
     headerStyle: {
             backgroundColor: '#00ace6'
           },
@@ -56,18 +57,40 @@ export default class PageHome extends Component<{}> {
     const { navigate } = this.props.navigation;
     return(
       <View style={styles.container}>
+        <StatusBar
+         backgroundColor="#007acc"
+         barStyle="light-content"
+       />
         <View style={styles.header}>
-          <Swiper style={styles.wrapper} showsButtons={true}>
-        <View style={styles.slide1}>
-          <TouchableOpacity onPress={() => navigate('DetailFeed')}><Text style={styles.text}>Hello Swiper</Text></TouchableOpacity>
-        </View>
-        <View style={styles.slide2}>
-          <Text style={styles.text}>Beautiful</Text>
-        </View>
-        <View style={styles.slide3}>
-          <Text style={styles.text}>And simple</Text>
-        </View>
-      </Swiper>
+          <Swiper style={styles.wrapper} showsButtons={false} autoplay={true}>
+            <View style={styles.slide}>
+              <ImageBackground style={styles.imageHeader} source={require('../Assets/images/background.jpeg')}>
+                <Text style={styles.titleHeader}>Lorem Ipsum is simply dummy text of the printing</Text>
+                <View style={styles.containerComment}>
+                  <Image style={styles.iconImage} source={require('../Assets/images/comment.png')}/>
+                  <Text style={styles.titleComment}>30 Comment</Text>
+                </View>
+              </ImageBackground>
+            </View>
+            <View style={styles.slide}>
+              <ImageBackground style={styles.imageHeader} source={{uri: 'https://wallpaperscraft.com/image/minimalism_sky_clouds_sun_mountains_lake_landscape_95458_1920x1080.jpg'}}>
+                <Text style={styles.titleHeader}>Lorem Ipsum is simply dummy text of the printing</Text>
+                <View style={styles.containerComment}>
+                  <Image style={styles.iconImage} source={require('../Assets/images/comment.png')}/>
+                  <Text style={styles.titleComment}>30 Comment</Text>
+                </View>
+              </ImageBackground>
+            </View>
+            <View style={styles.slide}>
+              <ImageBackground style={styles.imageHeader} source={{uri: 'https://cdn57.androidauthority.net/wp-content/uploads/2015/11/00-best-backgrounds-and-wallpaper-apps-for-android.jpg'}}>
+                <Text style={styles.titleHeader}>Lorem Ipsum is simply dummy text of the printing</Text>
+                <View style={styles.containerComment}>
+                  <Image style={styles.iconImage} source={require('../Assets/images/comment.png')}/>
+                  <Text style={styles.titleComment}>30 Comment</Text>
+                </View>
+              </ImageBackground>
+            </View>
+          </Swiper>
         </View>
         <View style={styles.content}>
           <CenterTabs navigation={this.props.navigation}/>
@@ -85,43 +108,69 @@ const styles = StyleSheet.create({
     backgroundColor: '#1f2041',
   },
 
-  header: {
-    flex: 1,
-    backgroundColor: "#ffc857"
-  },
-
-  content: {
-    flex: 1,
-    backgroundColor: "#ffffff"
+  imageHeader:{
+    flexGrow:1,
+    height:null,
+    width:null,
+    alignItems: 'center',
+    justifyContent:'center',
   },
 
   titleHeader:{
+    fontSize: 20,
+    shadowColor: '#000000',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
     color: '#FFFFFF',
-    fontSize: 18,
+    shadowRadius: 5,
+    shadowOpacity: 1.0,
+    marginLeft: 30,
+    marginRight: 30,
+    marginBottom: 15,
+    alignSelf: 'flex-start'
   },
+
+  header: {
+    flex: 2,
+    backgroundColor: "#dddddd"
+  },
+
+  content: {
+    flex: 3,
+    backgroundColor: "#ffffff"
+  },
+
   wrapper: {
   },
-  slide1: {
+
+  slide: {
     flex: 1,
+    alignItems: 'stretch',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9DD6EB',
   },
-  slide2: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#97CAE5',
+
+  iconImage:{
+      width: 20,
+      height: 20,
+      marginRight: 10
   },
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#92BBD9',
+
+  titleComment:{
+    color: '#FFFFFF',
+    shadowOffset: {
+      width: 0,
+      height: 3
+    },
+    color: '#FFFFFF',
+    shadowRadius: 5,
+    shadowOpacity: 1.0,
   },
-  text: {
-    color: '#fff',
-    fontSize: 30,
-    fontWeight: 'bold',
+
+  containerComment:{
+    flexDirection: 'row',
+    alignSelf: 'flex-start',
+    marginLeft: 30,
   }
 });
