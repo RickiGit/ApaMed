@@ -15,7 +15,7 @@ import {
 export default class PageQuestionOpen extends Component<{}>{
 
   constructor(props){
-    super(props)
+    super(props);
   }
 
   static navigationOptions = {
@@ -23,7 +23,7 @@ export default class PageQuestionOpen extends Component<{}>{
     headerStyle: {
         backgroundColor: '#00ace6',
         borderBottomWidth: 0,
-        shadowRadius:0,
+        //borderRadius:0,
         elevation:0,
     },
     headerTitleStyle:{

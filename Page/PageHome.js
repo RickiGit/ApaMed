@@ -19,7 +19,7 @@ import {
   ImageBackground,
   StatusBar
 } from 'react-native';
-import Carousel from 'react-native-carousel-view';
+//import Carousel from 'react-native-carousel-view';
 
 const CenterTabs = TabNavigator({
   All:{screen:PageFeed},
@@ -63,7 +63,6 @@ export default class PageHome extends Component<{}> {
          barStyle="light-content"
        />
         <View style={styles.header}>
-<<<<<<< HEAD
           <Swiper style={styles.wrapper} showsButtons={false} autoplay={true}>
             <View style={styles.slide}>
               <ImageBackground style={styles.imageHeader} source={require('../Assets/images/background.jpeg')}>
@@ -92,24 +91,7 @@ export default class PageHome extends Component<{}> {
                 </View>
               </ImageBackground>
             </View>
-          </Swiper>
-=======
-          <Swiper
-            style={styles.wrapper}
-            showsButtons={true}
-            autoplay={true}
-            autoplayTimeout={5}>
-        <View style={styles.slide1}>
-          <TouchableOpacity onPress={() => navigate('DetailFeed')}><Text style={styles.text}>Hello Swiper</Text></TouchableOpacity>
-        </View>
-        <View style={styles.slide2}>
-          <Text style={styles.text}>Beautiful</Text>
-        </View>
-        <View style={styles.slide3}>
-          <Text style={styles.text}>And simple</Text>
-        </View>
-      </Swiper>
->>>>>>> 0b89fca21da9228bec1eede77747cce6d2f14495
+          </Swiper>          
         </View>
         <View style={styles.content}>
           <CenterTabs navigation={this.props.navigation}/>

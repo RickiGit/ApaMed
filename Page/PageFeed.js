@@ -57,7 +57,7 @@ class PageFeed extends React.Component<{}>{
     );
   };
 
-  handleClick(letter) {
+  _handleClick(letter) {
     this.props.navigation.navigate('DetailFeed', letter);
   }
 
@@ -72,7 +72,7 @@ class PageFeed extends React.Component<{}>{
     }
 
     return(
-<<<<<<< HEAD
+
       <View style={styles.container}>
         <StatusBar backgroundColor="#00ace6" barStyle="light-content"/>
 
@@ -82,7 +82,7 @@ class PageFeed extends React.Component<{}>{
             <View style={styles.containerItem}>
               <Image style={styles.imageItem} source={{uri: 'https://www.iamexpat.nl/sites/default/files/styles/article--full/public/dutch-healthcare-system.jpg?itok=0MbxOy7D'}}></Image>
               <View style={styles.containerContentItem}>
-                <TouchableOpacity onPress={this.handleClick(item.title)}>
+                <TouchableOpacity>
                   <Text style={styles.item}>{item.title}, {item.releaseYear} A performant interface for rendering</Text>
                 </TouchableOpacity>
                 <View style={styles.containerItem2}>
@@ -97,46 +97,45 @@ class PageFeed extends React.Component<{}>{
         />
       </View>
     );
-=======
-      // <View style={styles.container}>
-        <FlatList style={styles.list}
-        data={[
-          {key: 'Devin'},
-          {key: 'Jackson'},
-          {key: 'James'},
-          {key: 'Joel'},
-          {key: 'John'},
-          {key: 'Jillian'},
-          {key: 'Jimmy'},
-          {key: 'Julie'},
-        ]}
 
-        renderItem={({item}) => {return(
-          <View style={styles.container}>
-            <View style={styles.box}>
-              <View>
-              <Image
-                style={{
-                  width:50,
-                  height:50,
-                  marginTop:5,
-                  marginEnd:5,
-                }}
-                source={{uri: 'https://i1.wp.com/epicureandculture.com/wp-content/uploads/2014/10/Sacred-Earth-Journeys.jpg?w=320&ssl=1'}}/>
-                </View>
-                <View style={{flex:1,paddingLeft:10, paddingRight:10, paddingTop:5,alignItems:'stretch'}}>
-                  <Text style={{fontWeight:'bold'}}>{item.key}</Text>
-                </View>
-                <View style={{justifyContent:'flex-end'}}>
-                  <TouchableOpacity><Text style={{color:'#888888'}}>...</Text></TouchableOpacity>
-                </View>
-            </View>
-          </View>
-        )}}
-      />
+      // <View style={styles.container}>
+      //   <FlatList style={styles.list}
+      //   data={[
+      //     {key: 'Devin'},
+      //     {key: 'Jackson'},
+      //     {key: 'James'},
+      //     {key: 'Joel'},
+      //     {key: 'John'},
+      //     {key: 'Jillian'},
+      //     {key: 'Jimmy'},
+      //     {key: 'Julie'},
+      //   ]}
+      //
+      //   renderItem={({item}) => {return(
+      //     <View style={styles.container}>
+      //       <View style={styles.box}>
+      //         <View>
+      //         <Image
+      //           style={{
+      //             width:50,
+      //             height:50,
+      //             marginTop:5,
+      //             marginEnd:5,
+      //           }}
+      //           source={{uri: 'https://i1.wp.com/epicureandculture.com/wp-content/uploads/2014/10/Sacred-Earth-Journeys.jpg?w=320&ssl=1'}}/>
+      //           </View>
+      //           <View style={{flex:1,paddingLeft:10, paddingRight:10, paddingTop:5,alignItems:'stretch'}}>
+      //             <Text style={{fontWeight:'bold'}}>{item.key}</Text>
+      //           </View>
+      //           <View style={{justifyContent:'flex-end'}}>
+      //             <TouchableOpacity><Text style={{color:'#888888'}}>...</Text></TouchableOpacity>
+      //           </View>
+      //       </View>
+      //     </View>
+      //   )}}
+      // />
       //</View>
-    )
->>>>>>> 0b89fca21da9228bec1eede77747cce6d2f14495
+    //)
   }
 }
 
@@ -146,6 +145,7 @@ const styles  = StyleSheet.create({
     justifyContent:'flex-start',
     alignItems:'stretch',
     backgroundColor:'#eeeeee',
+    paddingBottom:5,
   },
 
   list:{
@@ -158,6 +158,7 @@ const styles  = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     justifyContent: 'center',
+    backgroundColor:'white',
   },
 
   containerItem2:{
@@ -196,13 +197,13 @@ const styles  = StyleSheet.create({
 
   titleComment:{
     color: '#8c8c8c',
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 3
+    // },
     alignSelf: 'stretch',
-    shadowRadius: 5,
-    shadowOpacity: 1.0,
+    // shadowRadius: 5,
+    // shadowOpacity: 1.0,
     marginBottom: -10,
   },
 

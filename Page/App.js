@@ -12,6 +12,12 @@ import PageProfile from './PageProfile';
 import PageQuestionOpen from './PageQuestionOpen';
 import PageQuestionClose from './PageQuestionClose';
 import PageQuestionDetail from './PageQuestionDetail';
+import PageRegister from './PageRegister';
+
+const ProfileScreen = StackNavigator({
+  Profile:{screen: PageProfile},
+  Register:{screen: PageRegister},
+});
 
 const HomeScreen = StackNavigator({
   MainFeed:{screen: PageHome},
@@ -43,6 +49,7 @@ const QuestionScreen = StackNavigator({
       tabBarOptions:{
         style:{
           backgroundColor: '#00ace6',
+          borderTopColor: 'transparent',
         },
         labelStyle:{
           fontSize: 16,
@@ -69,7 +76,7 @@ const MainScreen = TabNavigator({
     },
   },
   Doctor:{screen:PageDoctor},
-  Profile:{screen:PageProfile},
+  Profile:{screen:ProfileScreen},
 },
 {
   lazy:false,
