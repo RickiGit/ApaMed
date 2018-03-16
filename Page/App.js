@@ -13,6 +13,13 @@ import PageQuestionOpen from './PageQuestionOpen';
 import PageQuestionClose from './PageQuestionClose';
 import PageQuestionDetail from './PageQuestionDetail';
 import PageRegister from './PageRegister';
+import {Image} from 'react-native';
+import React from 'react';
+
+export const imageHome = require('../Assets/images/home.png');
+export const imageQuestion = require('../Assets/images/questions.png');
+export const imageDoctor = require('../Assets/images/doctor.png');
+export const imageProfile = require('../Assets/images/profile.png');
 
 const ProfileScreen = StackNavigator({
   Profile:{screen: PageProfile},
@@ -21,7 +28,10 @@ const ProfileScreen = StackNavigator({
 
 const HomeScreen = StackNavigator({
   MainFeed:{screen: PageHome},
-  DetailFeed:{screen: PageFeedDetail},
+  DetailFeed:{
+    screen: PageFeedDetail,
+    initialRouteName: PageHome
+  },
 },
 {
   navigationOptions:{
@@ -63,7 +73,14 @@ const QuestionScreen = StackNavigator({
 });
 
 const MainScreen = TabNavigator({
-  Home:{screen:HomeScreen},
+  Home:{
+    screen:HomeScreen,
+    navigationOptions: {
+        showLabel: false,
+        tabBarIcon: <Image source={imageHome} style={{width: 20, height: 20}}/>,
+        showIcon: true
+    }
+  },
   Question:{
     screen:QuestionScreen,
     navigationOptions: {
@@ -72,11 +89,28 @@ const MainScreen = TabNavigator({
         bottomNavigationOptions:{
           shifting: false,
         }
-      }
+      },
+      showLabel: false,
+      tabBarIcon: <Image source={imageQuestion} style={{width: 20, height: 20}}/>,
+      showIcon: true
     },
   },
-  Doctor:{screen:PageDoctor},
-  Profile:{screen:ProfileScreen},
+  Doctor:{
+    screen:PageDoctor,
+    navigationOptions: {
+        showLabel: false,
+        tabBarIcon: <Image source={imageDoctor} style={{width: 20, height: 20}}/>,
+        showIcon: true
+    }
+  },
+  Profile:{
+    screen:ProfileScreen,
+    navigationOptions: {
+        showLabel: false,
+        tabBarIcon: <Image source={imageProfile} style={{width: 20, height: 20}}/>,
+        showIcon: true
+    }
+  },
 },
 {
   lazy:false,

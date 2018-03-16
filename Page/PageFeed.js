@@ -57,8 +57,8 @@ class PageFeed extends React.Component<{}>{
     );
   };
 
-  _handleClick(letter) {
-    this.props.navigation.navigate('DetailFeed', letter);
+  goToPageDetail(title) {
+    this.props.navigation.navigate('DetailFeed', title);
   }
 
   render(){
@@ -82,9 +82,7 @@ class PageFeed extends React.Component<{}>{
             <View style={styles.containerItem}>
               <Image style={styles.imageItem} source={{uri: 'https://www.iamexpat.nl/sites/default/files/styles/article--full/public/dutch-healthcare-system.jpg?itok=0MbxOy7D'}}></Image>
               <View style={styles.containerContentItem}>
-                <TouchableOpacity>
-                  <Text style={styles.item}>{item.title}, {item.releaseYear} A performant interface for rendering</Text>
-                </TouchableOpacity>
+                <Text onPress={this.goToPageDetail.bind(this, item.title)} style={styles.item}>{item.title}, {item.releaseYear} A performant interface for rendering</Text>
                 <View style={styles.containerItem2}>
                   <Image style={styles.iconImage} source={require('../Assets/images/comment_gray.png')}/>
                   <Text style={styles.titleComment}>30 Comment</Text>
