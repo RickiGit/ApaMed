@@ -30,7 +30,7 @@ export default class PageProfile extends Component<{}> {
       color:'white',
     },
     headerRight:
-    <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+    <TouchableOpacity onPress={() => navigation.navigate('Login')}>
         <Text style={{color:'white', padding:5, paddingRight:10}}>
           Edit
         </Text>

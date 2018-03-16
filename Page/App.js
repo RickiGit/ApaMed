@@ -13,6 +13,7 @@ import PageQuestionOpen from './PageQuestionOpen';
 import PageQuestionClose from './PageQuestionClose';
 import PageQuestionDetail from './PageQuestionDetail';
 import PageRegister from './PageRegister';
+import PageLogin from './PageLogin';
 import {Image} from 'react-native';
 import React from 'react';
 
@@ -24,6 +25,7 @@ export const imageProfile = require('../Assets/images/profile.png');
 const ProfileScreen = StackNavigator({
   Profile:{screen: PageProfile},
   Register:{screen: PageRegister},
+  Login:{screen: PageLogin},
 });
 
 const HomeScreen = StackNavigator({

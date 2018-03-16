@@ -12,21 +12,21 @@ import {
   DatePickerAndroid,
 } from 'react-native';
 
-export default class PageRegister extends Component<{}>{
+export default class PageLogin extends Component<{}>{
 
   static navigationOptions = {
     header:null,
   };
 
   render(){
+    const{ navigate } = this.props.navigation;
+
     return(
         <View style={styles.container}>
           <View style={styles.titleContainer}>
-            <Text style={styles.title}>Register</Text>
-            <Text style={styles.titleChild}>Mari Daftarkan Akunmu</Text>
+            <Text style={styles.title}>Login</Text>
           </View>
           <View style={styles.textContainer}>
-            <TextInput placeholder="Name" style={styles.textInput}/>
             <TextInput placeholder="Email" style={styles.textInput}/>
             <TextInput placeholder="Password" style={styles.textInput} secureTextEntry={true}/>
             {/* <TextInput placeholder="Date Of Birth" style={styles.textInput}/> */}
@@ -34,8 +34,12 @@ export default class PageRegister extends Component<{}>{
             <DatePickerAndroid></DatePickerAndroid> */}
           </View>
           <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.button} onPress={()=> navigate('Register')}>
+              <Text style={styles.buttonText}>Register</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity style={styles.button}>
-              <Text style={styles.buttonText}>Submit</Text>
+              <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -82,23 +86,26 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios:{
         margin:15,
-        borderBottomColor:'#111111',
+        borderBottomColor:'#333333',
         borderBottomWidth:StyleSheet.hairlineWidth,
       }
     }),
   },
 
   buttonContainer:{
+    flexDirection:'row',
     margin:20,
   },
 
   button:{
-    width:250,
+    width:125,
     padding:10,
     backgroundColor:'#77d40a',
     justifyContent:'center',
     alignItems:'center',
-    borderRadius:10,
+    borderRadius:5,
+    marginLeft:5,
+    marginRight:5,
   },
 
   buttonText:{
