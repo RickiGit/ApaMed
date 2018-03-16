@@ -5,9 +5,9 @@ import React,{Component} from 'react';
 import {
   View,
   Text,
-  Button,
   StyleSheet,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 
 export default class PageProfile extends Component<{}> {
@@ -29,7 +29,12 @@ export default class PageProfile extends Component<{}> {
     headerTitleStyle:{
       color:'white',
     },
-    headerRight: <Button title="Edit" onPress={() => navigation.navigate('Register')}/>,
+    headerRight:
+    <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+        <Text style={{color:'white', padding:5, paddingRight:10}}>
+          Edit
+        </Text>
+    </TouchableOpacity>,
   });
 
   render(){

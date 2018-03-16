@@ -2,11 +2,12 @@
 
 import React,{Component} from 'react';
 import {
+  Platform,
   View,
   Text,
   StyleSheet,
   TextInput,
-  Button,
+  TouchableOpacity,
   DatePickerIOS,
   DatePickerAndroid,
 } from 'react-native';
@@ -33,7 +34,9 @@ export default class PageRegister extends Component<{}>{
             <DatePickerAndroid></DatePickerAndroid> */}
           </View>
           <View style={styles.buttonContainer}>
-            <Button color='white' title='Submit' style={styles.button}/>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}>Submit</Text>
+            </TouchableOpacity>
           </View>
         </View>
     )
@@ -69,16 +72,20 @@ const styles = StyleSheet.create({
   textContainer:{
     marginTop:30,
     padding:20,
-    backgroundColor:'white',
+    backgroundColor:'#00000010',
     borderRadius:15,
   },
 
   textInput:{
-    margin:15,
     width:250,
     color:'#777777',
-    borderBottomColor:'#111',
-    borderBottomWidth:StyleSheet.hairlineWidth,
+    ...Platform.select({
+      ios:{
+        margin:15,
+        borderBottomColor:'#111',
+        borderBottomWidth:StyleSheet.hairlineWidth,
+      }
+    }),
   },
 
   buttonContainer:{
@@ -87,5 +94,14 @@ const styles = StyleSheet.create({
 
   button:{
     width:250,
-  }
+    padding:10,
+    backgroundColor:'#77d40a',
+    justifyContent:'center',
+    alignItems:'center',
+    borderRadius:10,
+  },
+
+  buttonText:{
+    color:'white',
+  },
 });
