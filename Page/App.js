@@ -14,7 +14,7 @@ import PageQuestionClose from './PageQuestionClose';
 import PageQuestionDetail from './PageQuestionDetail';
 import PageRegister from './PageRegister';
 import PageLogin from './PageLogin';
-import {Image} from 'react-native';
+import {Image,Platform} from 'react-native';
 import React from 'react';
 
 export const imageHome = require('../Assets/images/home.png');
@@ -22,10 +22,17 @@ export const imageQuestion = require('../Assets/images/questions.png');
 export const imageDoctor = require('../Assets/images/doctor.png');
 export const imageProfile = require('../Assets/images/profile.png');
 
+const DoctorScreen = StackNavigator({
+  Doctor:{screen: PageDoctor},
+});
+
+const LoginScreen = StackNavigator({
+    Login:{screen: PageLogin},
+    Register:{screen: PageRegister},
+});
+
 const ProfileScreen = StackNavigator({
   Profile:{screen: PageProfile},
-  Register:{screen: PageRegister},
-  Login:{screen: PageLogin},
 });
 
 const HomeScreen = StackNavigator({
@@ -66,6 +73,11 @@ const QuestionScreen = StackNavigator({
         labelStyle:{
           fontSize: 16,
           color: 'white',
+          ...Platform.select({
+            ios:{
+              paddingBottom:10,
+            },
+          }),
         }
       }
     }
@@ -98,7 +110,7 @@ const MainScreen = TabNavigator({
     },
   },
   Doctor:{
-    screen:PageDoctor,
+    screen:DoctorScreen,
     navigationOptions: {
         showLabel: false,
         tabBarIcon: <Image source={imageDoctor} style={{width: 20, height: 20}}/>,

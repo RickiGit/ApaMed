@@ -17,7 +17,7 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  StatusBar
+  StatusBar,
 } from 'react-native';
 //import Carousel from 'react-native-carousel-view';
 
@@ -37,9 +37,26 @@ const CenterTabs = TabNavigator({
   tabBarPosition:'top',
   scrollEnabled:true,
   tabBarOptions:{
+    scrollEnabled:true,
     showIcon:false,
     labelStyle:{
+      ...Platform.select({
+        ios:{
+          paddingBottom:5,
+        },
+        android:{
+
+        },
+      }),
+
     },
+    style:{
+      ...Platform.select({
+        ios:{
+          height:25,
+        },
+      })
+    }
   },
 });
 
@@ -91,7 +108,7 @@ export default class PageHome extends Component<{}> {
                 </View>
               </ImageBackground>
             </View>
-          </Swiper>          
+          </Swiper>
         </View>
         <View style={styles.content}>
           <CenterTabs navigation={this.props.navigation}/>
