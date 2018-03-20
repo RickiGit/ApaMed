@@ -9,14 +9,27 @@ import {
   ImageBackground,
   Image,
   Button,
-  WebView
+  WebView,
+  ScrollView
 } from 'react-native';
 
 export default class PageFeedDetail extends Component<{}>{
 
-  static navigationOptions = ({navigate, navigation}) => ({
-    headerTitle: 'Detail Feed',
-  });
+  static navigationOptions = {
+    headerStyle:{
+      backgroundColor:'#00ace6',
+      borderBottomWidth: 0,
+      shadowRadius:0,
+      elevation:0,
+    },
+    headerTitleStyle:{
+      color:'white',
+    },
+    headerBackTitleStyle:{
+      color:'white',
+    },
+    headerTintColor:'white',
+  }
 
   render(){
     const { navigate } = this.props.navigation;
@@ -24,23 +37,23 @@ export default class PageFeedDetail extends Component<{}>{
     return(
       <View style={styles.container}>
         <StatusBar
-            backgroundColor="#007acc"
+            backgroundColor="#00ace6"
             barStyle="light-content"
         />
 
-        <View style={styles.header}>
-          <ImageBackground style={styles.imageHeader} source={require('../Assets/images/background.jpeg')}>
-            <Text style={styles.titleHeader}>Lorem Ipsum is simply dummy text of the printing</Text>
-            <View style={styles.containerComment}>
-              <Image style={styles.iconImage} source={require('../Assets/images/comment.png')}/>
-              <Text style={styles.titleComment}>30 Comment</Text>
+          <View style={styles.header}>
+            <View style={styles.backgroundHeader}>
+              <Text style={styles.titleHeader}>Lorem Ipsum is simply dummy text of the printing</Text>
+              <View style={styles.containerComment}>
+                <Image style={styles.iconImage} source={require('../Assets/images/comment.png')}/>
+                <Text style={styles.titleComment}>30 Comment</Text>
+              </View>
             </View>
-          </ImageBackground>
-        </View>
+          </View>
 
-        <View style={styles.content}>
-          <WebView source={{ html: "<h2>What is Lorem Ipsum?</h2><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div><div><h2>Why do we use it?</h2><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>" }} />
-        </View>
+          <View style={styles.content}>
+            <WebView source={{ html: "<style type='text/css'>body{font-family: 'Open Sans', sans-serif; text-align: justify; background-color: '#fcfcfc'}</style><link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'><h4>What is Lorem Ipsum?</h4><p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></div><div><h4>Why do we use it?</h4><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>" }} />
+          </View>
       </View>
     )
   }
@@ -58,16 +71,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 
-  content:{
-    flex: 2,
+  imageHeader:{
+    alignItems: 'stretch',
+    height: 150
   },
 
-  imageHeader:{
+  content:{
+    flex: 4,
+    flexDirection: 'column'
+  },
+
+  backgroundHeader:{
     flexGrow:1,
     height:null,
     width:null,
     alignItems: 'center',
     justifyContent:'flex-end',
+    backgroundColor: '#00ace6'
   },
 
   titleHeader:{

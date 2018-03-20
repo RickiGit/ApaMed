@@ -35,9 +35,9 @@ const CenterTabs = TabNavigator({
 {
   lazy:false,
   tabBarPosition:'top',
-  scrollEnabled:true,
+  scrollEnabled:false,
   tabBarOptions:{
-    scrollEnabled:true,
+    scrollEnabled:false,
     showIcon:false,
     labelStyle:{
       ...Platform.select({

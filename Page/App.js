@@ -37,15 +37,7 @@ const ProfileScreen = StackNavigator({
 
 const HomeScreen = StackNavigator({
   MainFeed:{screen: PageHome},
-  DetailFeed:{
-    screen: PageFeedDetail,
-    initialRouteName: PageHome
-  },
-},
-{
-  navigationOptions:{
-    header:null
-  }
+  DetailFeed:{screen: PageFeedDetail},
 });
 
 const QuestionScreen = StackNavigator({
