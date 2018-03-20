@@ -78,7 +78,6 @@ export default class PageDoctor extends Component<{}>{
           </View>
         </View>
       </View>
-
     )
   }
 }
@@ -158,6 +157,10 @@ const styles = StyleSheet.create({
 
   textSpesialis:{
     fontSize:12,
+  },
+
+  maps:{
+    flex:1,
   },
 
 
