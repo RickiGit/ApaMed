@@ -3,8 +3,8 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-import {TabNavigator,StackNavigator} from 'react-navigation';
-import {NavigationComponent} from 'react-native-material-bottom-navigation';
+import {TabNavigator,StackNavigator,TabBarBottom} from 'react-navigation';
+//import {NavigationComponent} from 'react-native-material-bottom-navigation';
 import PageHome from './PageHome';
 import PageFeedDetail from './PageFeedDetail';
 import PageDoctor from './PageDoctor';
@@ -77,6 +77,7 @@ const QuestionScreen = StackNavigator({
 },
   QuestionDetail:{screen: PageQuestionDetail}
 });
+let currentIndex;
 
 const MainScreen = TabNavigator({
   Home:{
@@ -84,7 +85,8 @@ const MainScreen = TabNavigator({
     navigationOptions: {
         showLabel: false,
         tabBarIcon: <Image source={imageHome} style={{width: 20, height: 20}}/>,
-        showIcon: true
+        showIcon: true,
+        tabBarLabel:'Home',
     }
   },
   Question:{
@@ -122,7 +124,26 @@ const MainScreen = TabNavigator({
   lazy:false,
   swipeEnabled:false,
   animationEnabled:false,
-  tabBarComponent: NavigationComponent,
+  tabBarComponent: ({ jumpToIndex, ...props }) => (
+      <TabBarBottom
+        {...props}
+        jumpToIndex={index => {
+          if (currentIndex === index && index === 0) {
+            let resetTabAction = NavigationActions.navigate({
+              routeName: "MainTab",
+              action: NavigationActions.reset({
+                index: 0,
+                actions: [NavigationActions.navigate({ routeName: "Home" })],
+              }),
+            });
+            props.navigation.dispatch(resetTabAction);
+          } else {
+            currentIndex = index;
+            jumpToIndex(index);
+          }
+        }}
+      />
+    ),
   tabBarPosition: 'bottom',
   tabBarOptions:{
     bottomNavigationOptions:{
