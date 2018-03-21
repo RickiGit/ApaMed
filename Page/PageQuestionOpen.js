@@ -39,7 +39,8 @@ export default class PageQuestionOpen extends Component<{}>{
           barStyle="light-content"
        />
 
-      <FlatList style={{alignSelf:'stretch'}}
+      <FlatList
+        style={style.flatlist}
         data={[
           {
             title:'Pregnancy',
@@ -58,7 +59,7 @@ export default class PageQuestionOpen extends Component<{}>{
         renderItem={({item}) => {return(
            <TouchableOpacity style={style.thread} onPress={() => navigate("QuestionDetail")}>
              <View style={style.threadTitle}>
-               <Text style={{color:'#00ace6', fontWeight:'bold',}}>
+               <Text style={style.title}>
                  {item.title}
                </Text>
                <Text>
@@ -71,19 +72,13 @@ export default class PageQuestionOpen extends Component<{}>{
                </Text>
              </View>
              <View style={style.threadTitle,{marginTop:5}}>
-               <View style={{flexDirection:'row', alignItems:'center'}}>
+               <View style={style.doctorImageContainer}>
                  <Image
-                   style={{
-                     width:30,
-                     height:30,
-                     marginTop:5,
-                     marginEnd:5,
-                     borderRadius:15,
-                   }}
+                   style={style.doctorImage}
                    source={{uri: 'https://cdn.business2community.com/wp-content/uploads/2014/04/profile-picture.jpg'}}
                  />
-                 <Text style={{fontSize:11, marginLeft:5}}>
-                   Answered by <Text style={{color:'#00ace6'}}>{item.doctorName}</Text>
+                 <Text style={style.doctorName}>
+                   Answered by <Text style={style.doctorNameBlue}>{item.doctorName}</Text>
                  </Text>
                </View>
                <View>
@@ -104,6 +99,13 @@ const style = StyleSheet.create({
     justifyContent:'flex-start',
     alignItems:'stretch',
   },
+  flatlist:{
+    alignSelf:'stretch',
+  },
+  title:{
+    color:'#00ace6',
+    fontWeight:'bold',
+  },
   thread:{
     backgroundColor: 'white',
     padding: 20,
@@ -122,5 +124,23 @@ const style = StyleSheet.create({
   },
   threadContent:{
     textAlign:'justify',
+  },
+  doctorImageContainer:{
+    flexDirection:'row',
+    alignItems:'center',
+  },
+  doctorImage:{
+      width:30,
+      height:30,
+      marginTop:5,
+      marginEnd:5,
+      borderRadius:15,
+  },
+  doctorName:{
+    fontSize:11,
+    marginLeft:5
+  },
+  doctorNameBlue:{
+    color:'#00ace6',
   }
 });

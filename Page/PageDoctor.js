@@ -36,47 +36,38 @@ export default class PageDoctor extends Component<{}>{
           <Text style={styles.logoImage}>Search</Text>
           <TextInput style={styles.searchbar} placeholder="Find a doctor" underlineColorAndroid='transparent'/>
         </View>
-        <View style={styles.flatlist}>
-          {/* list1 */}
-          <View style={styles.listContainer}>
-            <View style={styles.listContainer1}>
-              <Image
-                source={{uri:'https://image.freepik.com/free-vector/doctor-background-design_1270-62.jpg'}}
-                style={styles.imageDoctor}
-              />
+          <FlatList
+            style={styles.flatlist}
+            data=
+            {[
+              {key:'Dr. Tomb Raider'},
+              {key:'Dr. Indiana Jones'},
+              {key:'Dr. Sherlock'},
+              {key:'Dr. Peter Parker'},
+              {key:'Dr. Don Jon'},
+              {key:'Dr. John Cena'}
+            ]}
+            renderItem={({item}) =>
+            <View style={styles.listContainer}>
+              <View style={styles.listContainer1}>
+                <Image
+                  source={{uri:'https://image.freepik.com/free-vector/doctor-background-design_1270-62.jpg'}}
+                  style={styles.imageDoctor}
+                />
+              </View>
+              <View style={styles.listContainer2}>
+                <Text style={styles.textNama}>{item.key}</Text>
+                <Text style={styles.textSpesialis}>Specialist</Text>
+                <Text>.</Text>
+                <Text>.</Text>
+                <Text>.</Text>
+              </View>
+              <View style={styles.listContainer3}>
+                <Button title="Ask!" onPress={() => alert('Ask Button Pressed')}/>
+              </View>
             </View>
-            <View style={styles.listContainer2}>
-              <Text style={styles.textNama}>Dr. Doctor Name</Text>
-              <Text style={styles.textSpesialis}>Specialist</Text>
-              <Text>.</Text>
-              <Text>.</Text>
-              <Text>.</Text>
-            </View>
-            <View style={styles.listContainer3}>
-              <Button title="Ask!" onPress={() => alert('Ask Button Pressed')}/>
-            </View>
-          </View>
-
-          {/* list2 */}
-          <View style={styles.listContainer}>
-            <View style={styles.listContainer1}>
-              <Image
-                source={{uri:'https://image.freepik.com/free-vector/doctor-background-design_1270-62.jpg'}}
-                style={styles.imageDoctor}
-              />
-            </View>
-            <View style={styles.listContainer2}>
-              <Text style={styles.textNama}>Dr. Doctor Name</Text>
-              <Text style={styles.textSpesialis}>Specialist</Text>
-              <Text>.</Text>
-              <Text>.</Text>
-              <Text>.</Text>
-            </View>
-            <View style={styles.listContainer3}>
-              <Button title="Ask!" onPress={() => alert('Ask Button Pressed')}/>
-            </View>
-          </View>
-        </View>
+            }
+          />
       </View>
     )
   }
@@ -87,6 +78,7 @@ const styles = StyleSheet.create({
     padding:10,
     justifyContent:'flex-start',
     alignItems:'stretch',
+    flex:1,
   },
 
   searchbarContainer:{
@@ -116,7 +108,9 @@ const styles = StyleSheet.create({
   },
 
   flatlist:{
+    marginTop:2,
     paddingTop:5,
+    flex:1,
   },
 
   listContainer:{
