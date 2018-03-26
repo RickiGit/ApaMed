@@ -23,7 +23,7 @@ class PageFeed extends React.Component<{}>{
   static navigationOptions = {
     header:null,
   };
-  
+
   constructor(props){
       super(props);
       this.state = {
@@ -134,7 +134,7 @@ const styles  = StyleSheet.create({
   item: {
     fontSize: 18,
     height: 44,
-    color: '#111111',
+    color: '#626466',
     alignSelf: 'stretch',
     marginLeft: 5,
   },

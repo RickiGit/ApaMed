@@ -14,6 +14,9 @@ import PageQuestionClose from './PageQuestionClose';
 import PageQuestionDetail from './PageQuestionDetail';
 import PageRegister from './PageRegister';
 import PageLogin from './PageLogin';
+import PageHospitalList from './PageHospitalList';
+import PageMapsHospital from './PageMapsHospital';
+
 import {Image,Platform} from 'react-native';
 import React from 'react';
 
@@ -21,14 +24,21 @@ export const imageHome = require('../Assets/images/home.png');
 export const imageQuestion = require('../Assets/images/questions.png');
 export const imageDoctor = require('../Assets/images/doctor.png');
 export const imageProfile = require('../Assets/images/profile.png');
+export const imageHospital = require('../Assets/images/hospital.png');
+
 
 const DoctorScreen = StackNavigator({
   Doctor:{screen: PageDoctor},
 });
 
+const HospitalScreen = StackNavigator({
+  Hospital:{screen: PageHospitalList},
+  MapsHospital:{screen: PageMapsHospital},
+});
+
 const LoginScreen = StackNavigator({
-    Login:{screen: PageLogin},
-    Register:{screen: PageRegister},
+  Login:{screen: PageLogin},
+  Register:{screen: PageRegister},
 });
 
 const ProfileScreen = StackNavigator({
@@ -108,6 +118,14 @@ const MainScreen = TabNavigator({
     navigationOptions: {
         showLabel: false,
         tabBarIcon: <Image source={imageDoctor} style={{width: 20, height: 20}}/>,
+        showIcon: true
+    }
+  },
+  Hospital:{
+    screen:HospitalScreen,
+    navigationOptions: {
+        showLabel: false,
+        tabBarIcon: <Image source={imageHospital} style={{width: 20, height: 20}}/>,
         showIcon: true
     }
   },
