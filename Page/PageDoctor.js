@@ -29,6 +29,7 @@ export default class PageDoctor extends Component<{}>{
 
   render(){
     const { navigate } = this.props.navigation;
+
     return(
       <View style={styles.container}>
         <StatusBar backgroundColor="#00ace6" barStyle="light-content"/>
@@ -63,7 +64,7 @@ export default class PageDoctor extends Component<{}>{
                 <Text>.</Text>
               </View>
               <View style={styles.listContainer3}>
-                <Button title="Ask!" onPress={() => alert('Ask Button Pressed')}/>
+                <Button title="Ask!" onPress={() => alert('ask')}/>
               </View>
             </View>
             }
@@ -76,6 +77,7 @@ export default class PageDoctor extends Component<{}>{
 const styles = StyleSheet.create({
   container:{
     padding:10,
+    paddingBottom:0,
     justifyContent:'flex-start',
     alignItems:'stretch',
     flex:1,

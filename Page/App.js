@@ -77,6 +77,7 @@ const QuestionScreen = StackNavigator({
 },
   QuestionDetail:{screen: PageQuestionDetail}
 });
+
 let currentIndex;
 
 const MainScreen = TabNavigator({
@@ -146,6 +147,17 @@ const MainScreen = TabNavigator({
     ),
   tabBarPosition: 'bottom',
   tabBarOptions:{
+    activeTintColor: '#00ace6',
+    labelStyle:{
+      paddingBottom:10,
+    },
+    tabStyle:{
+      paddingTop:10,
+    },
+    style:{
+      height:56,
+      backgroundColor:'white',
+    },
     bottomNavigationOptions:{
       shifting: false,
       }
